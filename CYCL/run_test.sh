@@ -2,7 +2,7 @@ set -x
 set -e
     # check that unit tests ran
 PATH=`pwd`/anaconda/bin:$PATH
-export PYTHONPATH=$PYTHONPATH:cyclus/release/
+export PYTHONPATH=$PYTHONPATH:$WORKDIR/cyclus/release/
 anaconda/bin/cyclus --version
     if [[ "${_NMI_TASKNAME}" == CYCLUS* ]]
     then
