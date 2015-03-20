@@ -24,8 +24,10 @@ read -a versArray <<< $vers
 anaconda/bin/conda install --use-local cyclus=${versArray[1]}
 tar -czf results.tar.gz anaconda
 
-cp -r "${WORKDIR}/tests" cycltest
-cp -r "${WORKDIR}/release" release
+echo "${WORKDIR}" > $HOME/.WORKDIR_PATH
+
+# cp -r "${WORKDIR}/tests" cycltest
+# cp -r "${WORKDIR}/release" release
 
 # Build Doc
 if [[  "${UNAME}" == 'Linux' ]]; then
