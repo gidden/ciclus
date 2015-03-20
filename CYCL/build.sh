@@ -17,14 +17,14 @@ else
   export WORKDIR="anaconda/conda-bld/work"
 fi
 
+echo "${WORKDIR}" > $HOME/.WORKDIR_PATH
+
 # force cycamore to build with local cyclus
 vers=$(cat cyclus/meta.yaml | grep version)
 read -a versArray <<< $vers
 
 anaconda/bin/conda install --use-local cyclus=${versArray[1]}
 tar -czf results.tar.gz anaconda
-
-echo "${WORKDIR}" > $HOME/.WORKDIR_PATH
 
 # cp -r "${WORKDIR}/tests" cycltest
 # cp -r "${WORKDIR}/release" release
