@@ -17,7 +17,7 @@ else
   export WORKDIR="anaconda/conda-bld/work"
 fi
 
-echo "${WORKDIR}" > $HOME/.WORKDIR_PATH
+echo "$PWD/${WORKDIR}" > $HOME/.WORKDIR_PATH
 
 # force cycamore to build with local cyclus
 vers=$(cat cyclus/meta.yaml | grep version)
