@@ -17,7 +17,7 @@ anaconda/bin/cyclus --version
         export PYTHONPATH=$PYTHONPATH:anaconda:anaconda/lib/python2.7/site-packages
         export LD_LIBRARY_PATH=anaconda/lib/:$LD_LIBRARY_PATH
         export PATH=anaconda/bin/:$PATH
-	cd $WORKDIR/tests
+        cd $WORKDIR/tests
         $rt/anaconda/bin/nosetests -vs
     else
     anaconda/bin/cyclus_unit_tests --gtest_repeat=1
