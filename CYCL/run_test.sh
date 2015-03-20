@@ -5,6 +5,7 @@ PATH=`pwd`/anaconda/bin:$PATH
 WORKDIR=`cat ~/.WORKDIR_PATH`
 rm ~/.WORKDIR_PATH
 echo "WORKDIR is $WORKDIR"
+rt=$PWD
 anaconda/bin/cyclus --version
     if [[ "${_NMI_TASKNAME}" == CYCLUS* ]]
     then
@@ -16,10 +17,12 @@ anaconda/bin/cyclus --version
         export PYTHONPATH=$PYTHONPATH:anaconda:anaconda/lib/python2.7/site-packages
         export LD_LIBRARY_PATH=anaconda/lib/:$LD_LIBRARY_PATH
         export PATH=anaconda/bin/:$PATH
-        anaconda/bin/nosetests -vsw $WORKDIR/tests
+	cd $WORKDIR/tests
+        $rt/anaconda/bin/nosetests -vs
     else
     anaconda/bin/cyclus_unit_tests --gtest_repeat=1
-    anaconda/bin/nosetests -vsw $WORKDIR/tests
+    cd $WORKDIR/tests
+    $rt/anaconda/bin/nosetests -vs
     # check that unit tests ran
     if [ $? -ne 0 ]
     then
